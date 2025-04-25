@@ -4,6 +4,10 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 
+//valgrind --track-fds=yes --trace-children=yes ./a.out 
+
+
+
 void	putstr_fd(int fd, char *str)
 {
 	int i;
@@ -135,7 +139,7 @@ int main(int argc, char *argv[], char *envp[])
 				close(fd[0]);
 				close(fd[1]);
 				execute(argv, i, envp, tmp_fd);
-				
+
 			}
 			else //(no waiting bc pipe ends need to run at same time)
 			{
